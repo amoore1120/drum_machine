@@ -75,7 +75,7 @@
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); // const keys = document.querySelectorAll('.key');: This line selects all elements with the class  .key  using the querySelectorAll() method and stores them in the keys variable. 
       if (!audio) return;  
       audio.currentTime = 0; //rewind sound to the start
-      audio.play(); fd
+      audio.play(); 
 
       key.classList.add('playing');
     }
@@ -85,7 +85,7 @@
       this.classList.remove('playing');
     }
 
-    const keys = document.querySelectorAll('.key');
+    const keys = Array.from(document.querySelectorAll('.key'));
     keys.forEach(key => key.addEventListener('transitionend', removeTransition));
     window.addEventListener('keydown', playSound);
 
